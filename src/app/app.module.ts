@@ -1,24 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule} from '@angular/http'
+import { HttpClientModule} from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
 import { NavComponent } from './nav/nav.component';
+import { PostsService } from './_services/posts.service';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
-    NavComponent
+    NavComponent,
+    PaginationComponent
 ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

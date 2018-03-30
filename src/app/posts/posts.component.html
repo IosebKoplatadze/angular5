@@ -1,6 +1,13 @@
-<p>
-  posts works!
-</p>
-<div *ngFor="let post of posts">
-  {{post.userId}}
+<div class="d-flex flex-column align-items-center">
+  <div class="col-lg-10" *ngFor="let post of posts">
+    <div class="card card-margin">
+      <div class="card-body">
+        <h5 class="card-title ">{{post.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{post.userId}}{{post.userName}}</h6>
+        <p class="card-text">{{post.body}}</p>
+        <a href="#" class="card-link">Details</a>
+      </div>
+    </div>
+  </div>
 </div>
+<app-pagination [total-items]="10" [page-size]="4" (page-changed)=pageChanged($event)></app-pagination>
