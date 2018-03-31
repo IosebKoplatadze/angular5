@@ -4,6 +4,7 @@ import {
 	Output, 
 	EventEmitter }     from '@angular/core';
 import { OnChanges } from '@angular/core';
+import { Pagination } from '../_models/pagination';
 
 @Component({
   selector: 'app-pagination',
@@ -12,41 +13,39 @@ import { OnChanges } from '@angular/core';
 })
 export class PaginationComponent implements OnChanges {
   @Input('total-items') totalItems;
-	@Input('page-size') pageSize = 10;
 	@Output('page-changed') pageChanged = new EventEmitter();
-	pages: any[];
-	currentPage = 1; 
+
+	pagination:Pagination=new Pagination();
 
 	ngOnChanges(){
-    this.currentPage = 1;
+		this.pagination.currentPage = 1;
+		this.pagination.itemsPerPage = 10;
+		this.pagination.totalItems=this.totalItems;
         
-		var pagesCount = Math.ceil(this.totalItems / this.pageSize); 
-		this.pages = [];
+		var pagesCount = Math.ceil(this.pagination.totalItems / this.pagination.itemsPerPage); 
+		this.pagination.pages = [];
 		for (var i = 1; i <= pagesCount; i++)
-			this.pages.push(i);
-
-    console.log(this);
+			this.pagination.pages.push(i);
 	}
 
 	changePage(page){
-		this.currentPage = page; 
-		this.pageChanged.emit(page);
+		this.pagination.currentPage = page; 
+		this.pageChanged.emit(this.pagination);
 	}
 
 	previous(){
-		if (this.currentPage == 1)
+		if (this.pagination.currentPage == 1)
 			return;
 
-		this.currentPage--;
-		this.pageChanged.emit(this.currentPage);
+		this.pagination.currentPage--;
+		this.pageChanged.emit(this.pagination);
 	}
 
 	next(){
-		if (this.currentPage == this.pages.length)
+		if (this.pagination.currentPage == this.pagination.pages.length)
 			return; 
 		
-		this.currentPage++;
-    console.log("next", this);
-		this.pageChanged.emit(this.currentPage);
+		this.pagination.currentPage++;
+		this.pageChanged.emit(this.pagination);
 	}
 }

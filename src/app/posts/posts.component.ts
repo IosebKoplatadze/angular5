@@ -11,8 +11,8 @@ import { Pagination, PaginatedResult } from '../_models/pagination';
 export class PostsComponent implements OnInit {
   posts: Post[] = [];
   userParams: any = {};
-  pagination: any={};
-  
+  pagination: Pagination= new Pagination();;
+
 
   constructor(private postsService: PostsService) { }
 
@@ -28,21 +28,21 @@ export class PostsComponent implements OnInit {
     // fetch('https://jsonplaceholder.typicode.com/posts')
     //   .then(response => response.json())
     //   .then(json => this.posts = json);
-
+    //this.pagination = new Pagination();
     this.loadPosts();
   }
 
 
   loadPosts() {
-    this.postsService.getPosts(this.pagination ? this.pagination.currentPage : 1, this.pagination ? this.pagination.itemsPerPage : 10)
+    this.postsService.getPosts(this.pagination.currentPage, this.pagination.itemsPerPage)
       .subscribe((res: PaginatedResult<Post[]>) => {
         this.posts = res.result;
-        this.pagination = res.pagination;
+        this.pagination.totalItems=res.totalItems;
       });
   }
 
-  pageChanged(event: any): void {
-    this.pagination.currentPage = event.page;
+  pageChanged(event: Pagination): void {
+    this.pagination = event;
     this.loadPosts();
   }
 }
