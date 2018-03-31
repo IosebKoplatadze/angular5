@@ -1,6 +1,10 @@
 .card-margin{
-    padding: 20px;
+    margin: 17px;
 }
+.card-body-padding{
+    padding: 2.25rem;
+}
+
 
 .btn{
     margin: 3px;

@@ -1,10 +1,12 @@
-<div class="card card-margin">
-  <div class="card-body">
-    <a href="#" class="btn btn-danger float-right">Details</a>
-    <a href="#" class="btn btn-warning float-right">Details</a>
-    <h5 class="card-title ">{{post?.title}}</h5>
-    <p class="card-text">{{post?.body}}</p>
+<div class="card border-primary card-margin">
+    <div class="card-header">
+      <a href="#" class="btn btn-danger float-right">Delete</a>
+      <a href="#" class="btn btn-warning float-right">Edit</a>
+      <h5 class="card-title ">{{post?.title}}</h5>
+    </div>
+    <div class="card-body text-primary card-body-padding">
+      <p class="card-text">{{post?.body}}</p>
+    </div>
   </div>
-</div>
 
 <app-comments *ngIf="this.post" [postId]="this.post.id"></app-comments>
