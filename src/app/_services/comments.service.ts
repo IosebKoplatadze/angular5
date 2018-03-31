@@ -16,6 +16,6 @@ export class CommentsService {
 
     addComment(postId: number, comment: Comment) {
         return this.http
-            .put(`${this.baseUrl}posts/${postId}/comments`, comment);
+            .post(`${this.baseUrl}posts/${postId}/comments`, comment);
     }
 }

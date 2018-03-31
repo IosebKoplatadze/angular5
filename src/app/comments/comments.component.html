@@ -1,13 +1,47 @@
 <div class="d-flex flex-column align-items-center">
-  <div class="card col-lg-10 comment-margin" *ngFor="let comment of this.comments">
-    <div class="card-body">
-      <h6 class="card-subtitle text-muted float-right">
-        {{comment.email}}
-      </h6>
-      <h5 class="card-title bol">
-        {{comment.name}}
-      </h5>
-      <p class="card-text">{{comment.body}}</p>
+  <div class="col-lg-10">
+    <div class="card comment-margin" *ngFor="let comment of this.comments">
+      <div class="card-body">
+        <h6 class="card-subtitle text-muted float-right">
+          {{comment.email}}
+        </h6>
+        <h5 class="card-title bol">
+          {{comment.name}}
+        </h5>
+        <p class="card-text">{{comment.body}}</p>
+      </div>
+    </div>
+
+    <div class="card  border-info add-comment">
+      <form #f="ngForm" (ngSubmit)="submit()" novalidate>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Name" [(ngModel)]="newComment.name" name="name" required
+              #name="ngModel">
+            <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Please specify the Name.</div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail">Email</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">@</div>
+              </div>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email" [(ngModel)]="newComment.email" name="email"
+                required #email="ngModel">
+            </div>
+            <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Please specify the Email.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputBody">Body</label>
+          <input type="text" class="form-control" id="inputBody" placeholder="Body" [(ngModel)]="newComment.body" name="body" required
+            #body="ngModel">
+          <div class="alert alert-danger" *ngIf="body.touched && !body.valid">Please specify the Body.</div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Comment</button>
+      </form>
     </div>
   </div>
 </div>

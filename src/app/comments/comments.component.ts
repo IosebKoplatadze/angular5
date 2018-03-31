@@ -10,12 +10,24 @@ import { Comment } from './../_models/Comment';
 export class CommentsComponent implements OnInit {
   @Input() postId: number;
   comments: Comment[];
+  newComment: Comment = {
+    postId: 0,
+    id: 0,
+    name: '',
+    email: '',
+    body: ''
+  }
+
   constructor(private commentService: CommentsService) { }
 
   ngOnInit() {
     this.commentService.getComments(this.postId)
       .subscribe(res => this.comments = res);
-      console.log(this.postId);
   }
 
+  submit() {
+      this.commentService.addComment(this.postId,this.newComment)
+        .subscribe(x => console.log("added", x),
+          err => console.log(err));
+  }
 }

@@ -1,3 +1,9 @@
 .comment-margin{
     margin: 4px;
 }
+
+.add-comment{
+    margin: 10px;
+    margin-top: 20px;
+    padding: 20px;
+}
