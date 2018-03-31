@@ -26,8 +26,11 @@ export class CommentsComponent implements OnInit {
   }
 
   submit() {
-      this.commentService.addComment(this.postId,this.newComment)
-        .subscribe(x => console.log("added", x),
-          err => console.log(err));
+    this.commentService.addComment(this.postId, this.newComment)
+      .subscribe(x => {
+        console.log("added", x);
+        this.comments.push(x as Comment);
+      },
+        err => console.log(err));
   }
 }
