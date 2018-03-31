@@ -8,6 +8,7 @@ import { PostsComponent } from './posts/posts.component';
 import { NavComponent } from './nav/nav.component';
 import { PostsService } from './_services/posts.service';
 import { PaginationComponent } from './pagination/pagination.component';
+import { RouteRoutes } from './route.routing';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PaginationComponent } from './pagination/pagination.component';
 ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule, 
+    RouteRoutes
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]
