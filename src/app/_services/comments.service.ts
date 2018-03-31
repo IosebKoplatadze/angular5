@@ -13,4 +13,9 @@ export class CommentsService {
         return this.http
             .get<Comment[]>(`${this.baseUrl}posts/${postId}/comments`);
     }
+
+    addComment(postId: number, comment: Comment) {
+        return this.http
+            .put(`${this.baseUrl}posts/${postId}/comments`, comment);
+    }
 }

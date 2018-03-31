@@ -40,8 +40,18 @@ export class PostsService {
             });
     }
 
-    getPost(id:number) {
+    getPost(id: number) {
         return this.http
             .get<Post>(`${this.baseUrl}posts/${id}`);
+    }
+
+    updatePost(post: Post) {
+        return this.http
+            .put<Post>(`${this.baseUrl}posts/${post.id}`, post);
+    }
+
+    addPost(post: Post) {
+        return this.http
+            .put(`${this.baseUrl}posts`, post);
     }
 }
