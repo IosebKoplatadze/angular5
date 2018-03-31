@@ -52,6 +52,6 @@ export class PostsService {
 
     addPost(post: Post) {
         return this.http
-            .put(`${this.baseUrl}posts`, post);
+            .post(`${this.baseUrl}posts`, post);
     }
 }

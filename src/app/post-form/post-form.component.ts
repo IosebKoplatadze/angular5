@@ -49,15 +49,6 @@ export class PostFormComponent implements OnInit {
       if (err.status == 404)
         this.router.navigate(['/posts']);
     });
-
-
-    // if (this.post.id)
-    //   this.postsService.getPost(this.post.id).subscribe(post => {
-    //     this.post = post;
-    //   }, err => {
-    //     if (err.status == 404)
-    //       this.router.navigate(['/posts']);
-    //   });
   }
 
   submit() {

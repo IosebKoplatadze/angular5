@@ -1,13 +1,14 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link"  [routerLink]="['/posts']">Posts</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link"  [routerLink]="['/alboms']">Alboms</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link"  [routerLink]="['/todos']">Todo List</a>
-      </li>
-    </ul>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/posts']">Posts</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/alboms']">Alboms</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/todos']">Todo List</a>
+    </li>
+  </ul>
+  <a *ngIf="router.url.match('/posts')&&!router.url.match('/posts/new')" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/posts/new']">New Post</a>
 </nav>

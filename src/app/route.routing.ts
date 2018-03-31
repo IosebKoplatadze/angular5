@@ -5,10 +5,10 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
-  { path: 'posts', component: PostsComponent },
+  { path: 'posts/new', component: PostFormComponent},
   { path: 'posts/:id', component: PostDetailComponent },
   { path: 'posts/edit/:id', component: PostFormComponent },
-  { path: 'posts/new', component: PostFormComponent },
+  { path: 'posts', component: PostsComponent },
   { path: '**', redirectTo: 'posts' }
 ];
 
