@@ -28,7 +28,7 @@ export class PostsService {
                 if (response.headers.get('x-total-count') != null) {
                     paginatedResult.totalItems = JSON.parse(response.headers.get('x-total-count'));
                 }
-                paginatedResult.result=response.body;
+                paginatedResult.result = response.body;
                 return paginatedResult;
             })
             .map(posts => {
@@ -38,5 +38,10 @@ export class PostsService {
                 });
                 return posts;
             });
+    }
+
+    getPost(id:number) {
+        return this.http
+            .get<Post>(`${this.baseUrl}posts/${id}`);
     }
 }

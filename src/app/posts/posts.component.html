@@ -5,9 +5,9 @@
         <h5 class="card-title ">{{post.title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{post.userName}}</h6>
         <p class="card-text">{{post.body}}</p>
-        <a href="#" class="card-link">Details</a>
+        <a [routerLink]="['/posts/', post.id]" class="card-link">Details</a>
       </div>
     </div>
   </div>
+  <app-pagination [total-items]="this.pagination.totalItems" (page-changed)=pageChanged($event)></app-pagination>
 </div>
-<app-pagination [total-items]="this.pagination.totalItems" (page-changed)=pageChanged($event)></app-pagination>

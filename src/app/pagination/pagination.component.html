@@ -1,17 +1,17 @@
 <nav *ngIf="pagination.totalItems > pagination.itemsPerPage">
-    <ul class="pagination">
-        <li class="page-item" [class.disabled]="pagination.currentPage == 1">
-            <a (click)="previous()" aria-label="Previous">
-            <span class="page-link" aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li  class="page-item" [class.active]="pagination.currentPage == page" *ngFor="let page of pagination.pages" (click)="changePage(page)">
-            <a class="page-link">{{ page }}</a>
-        </li>
-        <li [class.disabled]="pagination.currentPage == pagination.pages.length">
-            <a (click)="next()" aria-label="Next">
-            <span class="page-link" aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>  
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="pagination.currentPage == 1">
+      <a (click)="previous()" aria-label="Previous">
+        <span class="page-link" aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item" [class.active]="pagination.currentPage == page" *ngFor="let page of pagination.pages" (click)="changePage(page)">
+      <a class="page-link">{{ page }}</a>
+    </li>
+    <li [class.disabled]="pagination.currentPage == pagination.pages.length">
+      <a (click)="next()" aria-label="Next">
+        <span class="page-link" aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

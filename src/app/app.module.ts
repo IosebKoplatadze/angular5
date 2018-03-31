@@ -1,3 +1,4 @@
+import { CommentsService } from './_services/comments.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
@@ -9,6 +10,8 @@ import { NavComponent } from './nav/nav.component';
 import { PostsService } from './_services/posts.service';
 import { PaginationComponent } from './pagination/pagination.component';
 import { RouteRoutes } from './route.routing';
+import { CommentsComponent } from './comments/comments.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 
 @NgModule({
@@ -16,14 +19,16 @@ import { RouteRoutes } from './route.routing';
     AppComponent,
     PostsComponent,
     NavComponent,
-    PaginationComponent
+    PaginationComponent,
+    PostDetailComponent,
+    CommentsComponent
 ],
   imports: [
     BrowserModule,
     HttpClientModule, 
     RouteRoutes
   ],
-  providers: [PostsService],
+  providers: [PostsService, CommentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
