@@ -1,0 +1,15 @@
+img {
+    transform: scale(1, 1) !important;
+    transition-duration: 500ms !important;
+    transition-timing-function: ease-out !important;
+}
+
+.panel:hover img {
+    transform: scale(1.1, 1.1) rotate(1deg) !important;
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+}
+
+.margin{
+    margin:10px;
+}

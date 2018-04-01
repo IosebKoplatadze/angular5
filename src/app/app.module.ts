@@ -18,6 +18,8 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostFormComponent } from './post-form/post-form.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { AlbumDetailComponent } from './album-detail/album-detail.component';
+import { PhotosService } from './_services/photos.service';
+import { PhotosComponent } from './photos/photos.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { AlbumDetailComponent } from './album-detail/album-detail.component';
     CommentsComponent,
     PostFormComponent,
     AlbumsComponent,
-    AlbumDetailComponent
+    AlbumDetailComponent,
+    PhotosComponent
 ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { AlbumDetailComponent } from './album-detail/album-detail.component';
     PostsService, 
     CommentsService,
     UsersService,
-    AlbumsService
+    AlbumsService,
+    PhotosService
   ],
   bootstrap: [AppComponent]
 })

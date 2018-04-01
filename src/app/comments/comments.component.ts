@@ -18,15 +18,15 @@ export class CommentsComponent implements OnInit {
     body: ''
   }
 
-  constructor(private commentService: CommentsService) { }
+  constructor(private commentsService: CommentsService) { }
 
   ngOnInit() {
-    this.commentService.getComments(this.postId)
+    this.commentsService.getComments(this.postId)
       .subscribe(res => this.comments = res);
   }
 
   submit() {
-    this.commentService.addComment(this.postId, this.newComment)
+    this.commentsService.addComment(this.postId, this.newComment)
       .subscribe(x => {
         console.log("added", x);
         this.comments.push(x as Comment);
