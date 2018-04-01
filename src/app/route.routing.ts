@@ -1,3 +1,4 @@
+import { TodosComponent } from './todos/todos.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { PostFormComponent } from './post-form/post-form.component';
 import { PostsComponent } from './posts/posts.component';
@@ -23,6 +24,7 @@ export const routes: Routes = [
       { path: '', component: AlbumsComponent }
     ]
   },
+  { path:'todos', component: TodosComponent},
   { path: '**', redirectTo: 'posts' }
 ];
 

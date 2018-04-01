@@ -1,3 +1,4 @@
+import { TodosService } from './_services/todos.service';
 import { AlbumsService } from './_services/albums.service';
 import { UsersService } from './_services/users.service';
 import { CommentsService } from './_services/comments.service';
@@ -20,6 +21,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { AlbumDetailComponent } from './album-detail/album-detail.component';
 import { PhotosService } from './_services/photos.service';
 import { PhotosComponent } from './photos/photos.component';
+import { TodosComponent } from './todos/todos.component';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { PhotosComponent } from './photos/photos.component';
     PostFormComponent,
     AlbumsComponent,
     AlbumDetailComponent,
-    PhotosComponent
+    PhotosComponent,
+    TodosComponent
 ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { PhotosComponent } from './photos/photos.component';
     CommentsService,
     UsersService,
     AlbumsService,
-    PhotosService
+    PhotosService,
+    TodosService
   ],
   bootstrap: [AppComponent]
 })

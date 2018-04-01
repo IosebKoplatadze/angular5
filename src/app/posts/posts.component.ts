@@ -11,7 +11,7 @@ import { Pagination, PaginatedResult } from '../_models/pagination';
 export class PostsComponent implements OnInit {
   posts: Post[] = [];
   userParams: any = {};
-  pagination: Pagination = new Pagination();;
+  pagination: Pagination = new Pagination();
 
 
   constructor(private postsService: PostsService) { }

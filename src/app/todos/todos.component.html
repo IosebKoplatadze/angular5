@@ -1,0 +1,23 @@
+<div class="d-flex flex-column align-items-center">
+
+  <div class="col-lg-6 list-group">
+
+    <form #f="ngForm" (ngSubmit)="addTodo()" novalidate>
+      <div class="form-row">
+        <div class="form-group" style="width:100%">
+          <input type="text" class="form-control" placeholder="Title" [(ngModel)]="newTodo.title" name="title" required #title="ngModel">
+        </div>
+        <button type="submit" class="btn btn-primary add" [disabled]="!f.valid">Add</button>
+      </div>
+    </form>
+
+    <div [ngClass]="{'checked list-group-item-success' : todo.completed}" class="list-group-item list-group-item-action text-center nopadding"
+      *ngFor="let todo of todos">
+      <div class="pointer" (click)="changeCompleted(todo)">
+        {{todo.title}}
+      </div>
+      <span class="close" (click)="deleteTodo(todo.id)">×</span>
+    </div>
+  </div>
+  <app-pagination [total-items]="this.pagination.totalItems" (page-changed)=pageChanged($event)></app-pagination>
+</div>
