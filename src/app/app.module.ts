@@ -1,3 +1,4 @@
+import { AlbumsService } from './_services/albums.service';
 import { UsersService } from './_services/users.service';
 import { CommentsService } from './_services/comments.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +16,7 @@ import { RouteRoutes } from './route.routing';
 import { CommentsComponent } from './comments/comments.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostFormComponent } from './post-form/post-form.component';
+import { AlbumsComponent } from './albums/albums.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { PostFormComponent } from './post-form/post-form.component';
     PaginationComponent,
     PostDetailComponent,
     CommentsComponent,
-    PostFormComponent
+    PostFormComponent,
+    AlbumsComponent
 ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { PostFormComponent } from './post-form/post-form.component';
   providers: [
     PostsService, 
     CommentsService,
-    UsersService
+    UsersService,
+    AlbumsService
   ],
   bootstrap: [AppComponent]
 })

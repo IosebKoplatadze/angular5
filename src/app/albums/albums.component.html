@@ -1,0 +1,13 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="col-lg-10" *ngFor="let album of albums">
+    <div class="card bg-light card-margin">
+      <div class="card-body">
+        <h5 class="card-title ">{{album.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{album.userName}}</h6>
+        <p class="card-text">{{album.photosCount}}</p>
+        <a [routerLink]="['/albums/', album.id]" class="btn btn-primary">Details</a>
+      </div>
+    </div>
+  </div>
+  <app-pagination [total-items]="this.pagination.totalItems" (page-changed)=pageChanged($event)></app-pagination>
+</div>

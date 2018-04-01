@@ -62,7 +62,10 @@ export class PostFormComponent implements OnInit {
     }
     else {
       this.postsService.addPost(this.post)
-        .subscribe(x => console.log("added", x),
+        .subscribe(x => {
+          console.log("added", x);
+          this.router.navigate(['/posts/']);
+      },
           err => console.log(err));
 
     }
