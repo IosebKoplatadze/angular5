@@ -4,7 +4,7 @@
       <div class="card-body">
         <h5 class="card-title ">{{album.title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{album.userName}}</h6>
-        <p class="card-text">{{album.photosCount}}</p>
+        <p class="card-text">photos: {{album.photosCount}}</p>
         <a [routerLink]="['/albums/', album.id]" class="btn btn-primary">Details</a>
       </div>
     </div>

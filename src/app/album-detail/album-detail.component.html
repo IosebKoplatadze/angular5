@@ -1,0 +1,12 @@
+<div class="card border-primary card-margin">
+  <div class="card-header">
+    <!-- <a href="#" class="btn btn-danger float-right">Delete</a> -->
+    <!-- <a *ngIf="this.album" [routerLink]="['/posts/edit/', album.id]" class="btn btn-warning float-right">Edit</a> -->
+    <h5 class="card-title ">{{album?.title}}</h5>
+  </div>
+  <div class="card-body text-primary card-body-padding">
+    <p class="card-text">{{album?.title}}</p>
+  </div>
+</div>
+
+<app-comments *ngIf="this.album" [postId]="this.album.id"></app-comments>
